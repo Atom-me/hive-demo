@@ -24,19 +24,22 @@ public class MetaStoreDemo {
         allDatabases.forEach(System.out::println);
 
         //get all tabs by specified db
-        List<String> tablesList = client.getAllTables("my_test_hive_db");
-        System.out.print("my_test_hive_db数据库中所有的表:  ");
+        List<String> tablesList = client.getAllTables("default");
+        System.out.print("default:  ");
         for (String s : tablesList) {
             System.out.print(s + "\t");
         }
         System.out.println();
 
         //get specified tab by db name and tab name
-        System.out.println("tmy_test_hive_db.course 表信息: ");
-        Table table = client.getTable("my_test_hive_db", "course");
+        System.err.println("default.my_table8 表信息: ");
+        Table table = client.getTable("default", "my_table8");
+        System.err.println("table info:" + table.toString());
+        table.getCreateTime();
+        System.err.println(table.getParameters().get("comment"));
         List<FieldSchema> fieldSchemaList = table.getSd().getCols();
         for (FieldSchema schema : fieldSchemaList) {
-            System.out.println("字段: " + schema.getName() + ", 类型: " + schema.getType());
+            System.err.println("字段: " + schema.getName() + ", 类型: " + schema.getType());
         }
 
         client.close();

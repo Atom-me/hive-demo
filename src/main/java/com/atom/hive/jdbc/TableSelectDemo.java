@@ -2,10 +2,7 @@ package com.atom.hive.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 /**
  * @author Atom
@@ -16,16 +13,21 @@ public class TableSelectDemo {
     public static void main(String[] args) throws Exception {
         Class.forName("org.apache.hive.jdbc.HiveDriver");
 
-        Connection connection = DriverManager.getConnection("jdbc:hive2://node1:10000/my_test_hive_db", "", "");
-        PreparedStatement ppst = connection.prepareStatement("select * from score");
+        Connection connection = DriverManager.getConnection("jdbc:hive2://xxx:10000/default", "root", "123456");
+        PreparedStatement ppst = connection.prepareStatement("select * from my_table9");
         ResultSet rs = ppst.executeQuery();
         while (rs.next()) {
-            String sno = rs.getString("sno");
-            String cno = rs.getString("cno");
-            int degree = rs.getInt("degree");
+            String aa = rs.getString("aa");
+            String bb = rs.getString("bb");
+            String cc = rs.getString("cc");
+            log.info("aa->" + aa + "\tbb->" + bb + "\tcc->" + cc);
+        }
 
-            log.info("sno->" + sno + "\tcno->" + cno + "\tdegree->" + degree);
-
+        DatabaseMetaData metaData = connection.getMetaData();
+        rs = metaData.getPrimaryKeys("default", "default", "my_table9");
+        while (rs.next()) {
+            String pk = rs.getString("COLUMN_NAME");
+            System.err.println("PK->" + pk);
         }
         rs.close();
         ppst.close();

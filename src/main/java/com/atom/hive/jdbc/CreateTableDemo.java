@@ -14,8 +14,8 @@ public class CreateTableDemo {
 
     public static void main(String[] args) throws Exception {
         Class.forName("org.apache.hive.jdbc.HiveDriver");
-        Connection connection = DriverManager.getConnection("jdbc:hive2://node1:10000/my_test_hive_db", "", "");
-        PreparedStatement ppst = connection.prepareStatement("create table my_test_hive_db.table001(id int,name string,age int )");
+        Connection connection = DriverManager.getConnection("jdbc:hive2://xxx:10000/testschema", "", "");
+        PreparedStatement ppst = connection.prepareStatement("create table testschema.table001(id int,name string,age int )");
         ppst.execute();
         ppst.close();
         connection.close();

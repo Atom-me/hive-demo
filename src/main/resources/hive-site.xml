@@ -21,6 +21,6 @@
 
     <property>
         <name>hive.metastore.uris</name>
-        <value>thrift://node1:9083</value>
+        <value>thrift://xxx:9083</value>
     </property>
 </configuration>
