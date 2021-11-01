@@ -33,8 +33,11 @@ public class MetaStoreDemo {
 
         //get specified tab by db name and tab name
         System.err.println("default.my_table8 表信息: ");
-        Table table = client.getTable("default", "my_table8");
+        Table table = client.getTable("default", "test001");
         System.err.println("table info:" + table.toString());
+        System.err.println("==========");
+        System.err.println(table.getSd().getLocation());
+        System.err.println(table.getSd().getInputFormat());
         table.getCreateTime();
         System.err.println(table.getParameters().get("comment"));
         List<FieldSchema> fieldSchemaList = table.getSd().getCols();
