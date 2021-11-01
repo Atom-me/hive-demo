@@ -11,6 +11,8 @@ import javax.security.sasl.AuthenticationException;
  *
  * add configuration property to file hive-site.xml
  *
+ * add this jar to /usr/local/hive/lib/
+ *
  * </p>
  *
  * <property>
