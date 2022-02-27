@@ -18,13 +18,13 @@ public class ListAllTablesUsePrepareStatementDemo {
     public static void main(String[] args) throws Exception {
         List<String> tables = new ArrayList<>();
         Class.forName("org.apache.hive.jdbc.HiveDriver");
-        Connection connection = DriverManager.getConnection("jdbc:hive2://node1:10000/my_test_hive_db", "", "");
+        Connection connection = DriverManager.getConnection("jdbc:hive2://10.16.118.247:10000/mydb", "", "");
         PreparedStatement ppst = connection.prepareStatement("show tables");
         ResultSet rs = ppst.executeQuery();
         while (rs.next()) {
             tables.add(rs.getString(1));
         }
-        tables.forEach(System.out::println);
+        tables.forEach(System.err::println);
         rs.close();
         ppst.close();
         connection.close();

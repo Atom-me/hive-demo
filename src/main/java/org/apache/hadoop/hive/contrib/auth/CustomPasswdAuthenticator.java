@@ -8,24 +8,23 @@ import org.slf4j.Logger;
 import javax.security.sasl.AuthenticationException;
 
 /**
- *
- * add configuration property to file hive-site.xml
- *
- * add this jar to /usr/local/hive/lib/
+ * 1. add configuration property to file hive-site.xml
+ * <p>
+ * 2. add this jar to /usr/local/hive/lib/
  *
  * </p>
  *
  * <property>
- *   <name>hive.server2.authentication</name>
- *   <value>CUSTOM</value>
+ * <name>hive.server2.authentication</name>
+ * <value>CUSTOM</value>
  * </property>
  * <property>
- *   <name>hive.server2.custom.authentication.class</name>
- *   <value>org.apache.hadoop.hive.contrib.auth.CustomPasswdAuthenticator</value>
+ * <name>hive.server2.custom.authentication.class</name>
+ * <value>org.apache.hadoop.hive.contrib.auth.CustomPasswdAuthenticator</value>
  * </property>
  * <property>
- *     <name>hive.jdbc_passwd.auth.root</name>
- *     <value>123456</value>
+ * <name>hive.jdbc_passwd.auth.root</name>
+ * <value>123456</value>
  * </property>
  */
 public class CustomPasswdAuthenticator implements org.apache.hive.service.auth.PasswdAuthenticationProvider {
