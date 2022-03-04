@@ -11,12 +11,13 @@ import java.util.Date;
 
 /**
  * 将字符串转换成日期
+ * $hive> create temporary function atom_to_date as 'com.atom.hive.func.ToDate';
  *
  * @author Atom
  */
-@Description(name = "to_date",
+@Description(name = "atom_to_date",
         value = "this is my first udf !",
-        extended = "For example : select to_date('2022/02/27 12:12:12') ;")
+        extended = "For example : select atom_to_date('2022/02/27 12:12:12') ;")
 public class ToDate extends UDF {
 
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
