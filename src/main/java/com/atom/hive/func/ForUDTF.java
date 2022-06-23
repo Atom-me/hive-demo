@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * 简单for循环函数
+ * select forx(1,5);
  *
  * @author Atom
  */
