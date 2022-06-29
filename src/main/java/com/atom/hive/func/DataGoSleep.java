@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 自定义sleep函数实现
- * $hive> create temporary function atom_to_date as 'com.atom.hive.func.DataGoSleep';
+ * $hive> create temporary function datago_sleep as 'com.atom.hive.func.DataGoSleep';
  *
  * @author Atom
  */
