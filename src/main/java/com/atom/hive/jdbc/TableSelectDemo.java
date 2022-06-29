@@ -13,8 +13,11 @@ public class TableSelectDemo {
     public static void main(String[] args) throws Exception {
         Class.forName("org.apache.hive.jdbc.HiveDriver");
 
-        Connection connection = DriverManager.getConnection("jdbc:hive2://xxx:10000/default", "root", "123456");
-        PreparedStatement ppst = connection.prepareStatement("select * from my_table9");
+
+        Connection connection = DriverManager.getConnection("jdbc:hive2://xxx:10000/default?mapreduce.job.queuename=default;hive.cli.print.header=false", "", "");
+
+//        Connection connection = DriverManager.getConnection("jdbc:hive2://xxx:10000/default", "root", "123456");
+        PreparedStatement ppst = connection.prepareStatement("select 1");
         ResultSet rs = ppst.executeQuery();
         while (rs.next()) {
             String aa = rs.getString("aa");

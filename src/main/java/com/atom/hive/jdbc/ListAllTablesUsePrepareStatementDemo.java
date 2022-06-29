@@ -18,7 +18,7 @@ public class ListAllTablesUsePrepareStatementDemo {
     public static void main(String[] args) throws Exception {
         List<String> tables = new ArrayList<>();
         Class.forName("org.apache.hive.jdbc.HiveDriver");
-        Connection connection = DriverManager.getConnection("jdbc:hive2://10.16.118.247:10000/mydb", "", "");
+        Connection connection = DriverManager.getConnection("jdbc:hive2://xxx:10000/default", "root", "");
         PreparedStatement ppst = connection.prepareStatement("show tables");
         ResultSet rs = ppst.executeQuery();
         while (rs.next()) {
